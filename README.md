@@ -14,6 +14,16 @@ Chooses a random song from [BeatSaver](https://beatsaver.com) and downloads it!
 
 You can access it at [https://random-song-picker.glitch.me](https://random-song-picker.glitch.me)
 
+# Features
+
+- Displays map info before downloading
+- Auto retrys if map has been deleted
+
+### Comming Soon
+
+- Sort via Difficulty
+- Sort via Characteristics
+
 # Contributing
 
 Download the source files.... run an HTML server.... fix code.... done :)
