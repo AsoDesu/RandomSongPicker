@@ -43,7 +43,7 @@ async function showDisplay(hexCode) {
     document.getElementById('linkBtn').href = "https://beatsaver.com/beatmap/" + hexCode
 
     // Reset difficulty labels
-    document.getElementById('expertplus1').style = "display: none;"
+    document.getElementById('expertplus1').style = "display: none;" 
     document.getElementById('expert1').style = "display: none;"
     document.getElementById('hard1').style = "display: none;"
     document.getElementById('normal1').style = "display: none;"
@@ -66,6 +66,14 @@ async function showDisplay(hexCode) {
     if (difficulties.expertPlus) {
         document.getElementById('expertplus1').style = "display: block;"
     }
+    
+    // Reset Characteristics labels
+    document.getElementById('standard1').style = "display: none;" 
+    document.getElementById('light1').style = "display: none;"
+    document.getElementById('oneSaberd1').style = "display: none;"
+    document.getElementById('noArrow1').style = "display: none;"
+    document.getElementById('3601').style = "display: none;"
+    document.getElementById('901').style = "display: none;"
 
     // Set Characteristics Labels
     var characteristics = mapData.metadata.characteristics
