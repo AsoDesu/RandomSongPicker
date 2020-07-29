@@ -70,7 +70,7 @@ async function showDisplay(hexCode) {
     // Reset Characteristics labels
     document.getElementById('standard1').style = "display: none;" 
     document.getElementById('light1').style = "display: none;"
-    document.getElementById('oneSaberd1').style = "display: none;"
+    document.getElementById('oneSaber1').style = "display: none;"
     document.getElementById('noArrow1').style = "display: none;"
     document.getElementById('3601').style = "display: none;"
     document.getElementById('901').style = "display: none;"
