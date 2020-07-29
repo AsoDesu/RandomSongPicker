@@ -67,5 +67,28 @@ async function showDisplay(hexCode) {
         document.getElementById('expertplus1').style = "display: block;"
     }
 
+    // Set Characteristics Labels
+    var characteristics = mapData.metadata.characteristics
+    characteristics.forEach(item => {
+        if (item.name == "Standard") {
+            document.getElementById('standard1').style = "display: block;"
+        }
+        if (item.name == "Lightshow") {
+            document.getElementById('light1').style = "display: block;"
+        }
+        if (item.name == "OneSaber") {
+            document.getElementById('oneSaber1').style = "display: block;"
+        }
+        if (item.name == "NoArrows") {
+            document.getElementById('noArrow1').style = "display: block;"
+        }
+        if (item.name == "360Degree") {
+            document.getElementById('3601').style = "display: block;"
+        }
+        if (item.name == "90Degree") {
+            document.getElementById('901').style = "display: block;"
+        }
+    });
+
     $('#songModal').modal('show')
 }
