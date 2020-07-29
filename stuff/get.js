@@ -24,7 +24,6 @@ function convert(hexString) {
 async function showDisplay(hexCode) {
     var mapData;
     await fetch('https://beatsaver.com/api/maps/detail/' + hexCode).then(res => res.json()).then(data => mapData = data)
-    console.log(mapData)
 
     // Set Name, Desc, Mapper, and Author
     document.getElementById('songTitle').innerHTML = mapData.name
@@ -43,25 +42,28 @@ async function showDisplay(hexCode) {
     document.getElementById('downloadBtn').href = "https://beatsaver.com/api/download/key/" + hexCode
     document.getElementById('linkBtn').href = "https://beatsaver.com/beatmap/" + hexCode
 
+    // Reset difficulty labels
+    document.getElementById('expertplus1').style = "display: none;"
+    document.getElementById('expert1').style = "display: none;"
+    document.getElementById('hard1').style = "display: none;"
+    document.getElementById('normal1').style = "display: none;"
+    document.getElementById('easy1').style = "display: none;"
+
+    // Set difficulty labels
     var difficulties = mapData.metadata.difficulties
     if (difficulties.easy) {
-        console.log('1')
         document.getElementById('easy1').style = "display: block;"
     }
     if (difficulties.normal) {
-        console.log('2')
         document.getElementById('normal1').style = "display: block;"
     }
     if (difficulties.hard) {
-        console.log('3')
         document.getElementById('hard1').style = "display: block;"
     }
     if (difficulties.expert) {
-        console.log('4')
         document.getElementById('expert1').style = "display: block;"
     }
-    if (difficulties.expertplus) {
-        console.log('5')
+    if (difficulties.expertPlus) {
         document.getElementById('expertplus1').style = "display: block;"
     }
 
