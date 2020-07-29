@@ -1,5 +1,6 @@
 var mapCode;
 function getMap() {
+    document.getElementById('loadingIcon').style = ""
     fetch('https://beatsaver.com/api/maps/latest/0').then(res => res.json()).then(data => {
         var latestKey = data.docs[0].key
         var latestNumber = convert(latestKey)
@@ -74,6 +75,7 @@ async function showDisplay(hexCode) {
     document.getElementById('noArrow1').style = "display: none;"
     document.getElementById('3601').style = "display: none;"
     document.getElementById('901').style = "display: none;"
+    document.getElementById('law1').style = "display: none;"
 
     // Set Characteristics Labels
     var characteristics = mapData.metadata.characteristics
@@ -83,6 +85,9 @@ async function showDisplay(hexCode) {
         }
         if (item.name == "Lightshow") {
             document.getElementById('light1').style = "display: block;"
+        }
+        if (item.name == "Lawless") {
+            document.getElementById('law1').style = "display: block;"
         }
         if (item.name == "OneSaber") {
             document.getElementById('oneSaber1').style = "display: block;"
@@ -99,4 +104,5 @@ async function showDisplay(hexCode) {
     });
 
     $('#songModal').modal('show')
+    document.getElementById('loadingIcon').style = "display: none;"
 }

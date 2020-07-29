@@ -18,6 +18,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+    <!-- Font Awesome Garbage-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- My garbage -->
     <link rel="stylesheet" href="/stuff/style.css">
     <script src="stuff/get.js"></script>
@@ -25,7 +27,8 @@
 
 <body class="bg-dark">
     <div style="display: block; width: 20%;" class="centered">
-        <button class="btn btn-primary btn-block" onclick="getMap()"> Get Random Song </button>
+        <button class="btn btn-primary btn-block" onclick="getMap()"> <i class="fa fa-spinner fa-spin mr-1" id="loadingIcon" style="display: none;"></i>
+            Get Random Map </button>
     </div>
 
     <div class="modal fade" id="songModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
