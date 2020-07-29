@@ -26,9 +26,11 @@ async function showDisplay(hexCode) {
     var mapData;
     await fetch('https://beatsaver.com/api/maps/detail/' + hexCode).then(res => res.json()).then(data => mapData = data)
 
-    // Set Name, Desc, Mapper, and Author
+    // Set Name, Mapper, and Author
     document.getElementById('songTitle').innerHTML = mapData.name
-    document.getElementById('description').innerHTML = mapData.description
+    // Set desc
+    document.getElementById('description').innerHTML = mapData.description.replace(/(\r\n|\n|\r)/gm, "<br />");
+
     document.getElementById('songAuthor').innerHTML = mapData.metadata.songAuthorName
     document.getElementById('songMapper').innerHTML = 'Mapped by ' + mapData.metadata.levelAuthorName
     // Set Rating, Downloads, and key
@@ -105,4 +107,9 @@ async function showDisplay(hexCode) {
 
     $('#songModal').modal('show')
     document.getElementById('loadingIcon').style = "display: none;"
+}
+
+function preview() {
+    window.open( 
+        "https://skystudioapps.com/bs-viewer/?id=" + mapCode, "_blank"); 
 }
