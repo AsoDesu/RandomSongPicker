@@ -18,11 +18,14 @@ You can access it at [https://random-song-picker.glitch.me](https://random-song-
 
 - Displays map info before downloading
 - Auto retrys if map has been deleted
+- Sort By Difficulty
 
-### Comming Soon
+# Suggestions
 
-- Sort via Difficulty
-- Sort via Characteristics
+If you have a suggestion:
+
+- Create a GitHub issue with the tag [SUGGESTION]
+- Or DM Me on discord Aso#0001
 
 # Contributing
 
