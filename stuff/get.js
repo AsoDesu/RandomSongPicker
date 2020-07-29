@@ -1,6 +1,7 @@
 var mapCode;
 function getMap() {
     document.getElementById('loadingIcon').style = ""
+
     fetch('https://beatsaver.com/api/maps/latest/0').then(res => res.json()).then(data => {
         var latestKey = data.docs[0].key
         var latestNumber = convert(latestKey)
@@ -8,13 +9,40 @@ function getMap() {
         var randomMapKey = randomMapNumber.toString(16)
         mapCode = randomMapKey
         fetch('https://beatsaver.com/api/maps/detail/' + randomMapKey).then(res => res.json()).then(data => {
+            // Difficulty Check
+            if ($("#easyCheck").is(":checked") && !data.metadata.difficulties.easy) {
+                console.log('Found map but wasnt easy')
+                getMap()
+                return
+            }
+            if ($("#normalCheck").is(":checked") && !data.metadata.difficulties.normal) {
+                console.log('Found map but wasnt normal')
+                getMap()
+                return
+            }
+            if ($("#hardCheck").is(":checked") && !data.metadata.difficulties.hard) {
+                console.log('Found map but wasnt hard')
+                getMap()
+                return
+            }
+            if ($("#expertCheck").is(":checked") && !data.metadata.difficulties.expert) {
+                console.log('Found map but wasnt expert')
+                getMap()
+                return
+            }
+            if ($("#expertPlusCheck").is(":checked") && !data.metadata.difficulties.expertPlus) {
+                console.log('Found map but wasnt expert+')
+                getMap()
+                return
+            }
+
             console.log(data)
             showDisplay(randomMapKey)
             return
         }).catch(() => {
             console.log('Map Not Found')
             getMap()
-        }) 
+        })
     })
 }
 
@@ -46,7 +74,7 @@ async function showDisplay(hexCode) {
     document.getElementById('linkBtn').href = "https://beatsaver.com/beatmap/" + hexCode
 
     // Reset difficulty labels
-    document.getElementById('expertplus1').style = "display: none;" 
+    document.getElementById('expertplus1').style = "display: none;"
     document.getElementById('expert1').style = "display: none;"
     document.getElementById('hard1').style = "display: none;"
     document.getElementById('normal1').style = "display: none;"
@@ -69,9 +97,9 @@ async function showDisplay(hexCode) {
     if (difficulties.expertPlus) {
         document.getElementById('expertplus1').style = "display: block;"
     }
-    
+
     // Reset Characteristics labels
-    document.getElementById('standard1').style = "display: none;" 
+    document.getElementById('standard1').style = "display: none;"
     document.getElementById('light1').style = "display: none;"
     document.getElementById('oneSaber1').style = "display: none;"
     document.getElementById('noArrow1').style = "display: none;"
@@ -110,6 +138,6 @@ async function showDisplay(hexCode) {
 }
 
 function preview() {
-    window.open( 
-        "https://skystudioapps.com/bs-viewer/?id=" + mapCode, "_blank"); 
+    window.open(
+        "https://skystudioapps.com/bs-viewer/?id=" + mapCode, "_blank");
 }

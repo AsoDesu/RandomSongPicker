@@ -27,8 +27,21 @@
 
 <body class="bg-dark">
     <div style="display: block; width: 20%;" class="centered">
-        <button class="btn btn-primary btn-block" onclick="getMap()"> <i class="fa fa-spinner fa-spin mr-1" id="loadingIcon" style="display: none;"></i>
+        <button class="btn btn-primary btn-block mb-2" onclick="getMap()"> <i class="fa fa-spinner fa-spin mr-1"
+                id="loadingIcon" style="display: none;"></i>
             Get Random Map </button>
+
+        <h6 class="text-white"> Sort By Difficulties </h6>
+        <div class="input-group"><input type="checkbox" class="custom-checkbox" id="easyCheck"><label
+                class="ml-2 h6 text-white"> Easy </label></div>
+        <div class="input-group"><input type="checkbox" class="custom-checkbox" id="normalCheck"><label
+                class="ml-2 h6 text-white"> Normal </label></div>
+        <div class="input-group"><input type="checkbox" class="custom-checkbox" id="hardCheck"><label
+                class="ml-2 h6 text-white"> Hard </label></div>
+        <div class="input-group"><input type="checkbox" class="custom-checkbox" id="expertCheck"><label
+                class="ml-2 h6 text-white"> Expert </label></div>
+        <div class="input-group"><input type="checkbox" class="custom-checkbox" id="expertPlusCheck"><label
+                class="ml-2 h6 text-white"> ExpertPlus </label></div>
     </div>
 
     <div class="modal fade" id="songModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -45,8 +58,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <h6 id="songMapper" style="font-size: 14px;">  </h6>
-                    <h6 id="description">  </h6>
+                    <h6 id="songMapper" style="font-size: 14px;"> </h6>
+                    <h6 id="description"> </h6>
 
                     <ul class="list-group list-group-horizontal mb-2">
                         <li class="list-unstyled easy px-2 mr-2 rounded text-white small" id="easy1"
